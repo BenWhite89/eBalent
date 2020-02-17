@@ -1,0 +1,100 @@
+/ div#wecome-index
+/ 	h1 Welcome#index
+/ 	= logged_in?
+/ 	= current_user
+/ 	section.section
+/ 		h2
+/ 			| Let Us Help You Find Your Missing Piece
+/ 	section.section
+/ 		h2
+/ 			| Search Bar
+/ 	section#welcome-description.section
+/ 		h2
+/ 			| How It Works
+/ 		div.card
+/ 			// icons
+/ 			div.container
+/ 				h4.title.is-4{ style="text-align: center; padding: 10px 10px 10px 10px;" }
+/ 					| We Do The Hard Work For You
+/ 				p.content.has-text-centered
+/ 					| Finding local talent has never been easier than booking through eBalent. We have a great selection of local talent ranging from Musicians, Photographers, DJs and more! Browse tons of catalogs to match your needs as well as budget. We invite you to come visit our one stop shop to get a one-of-a-kind experience.
+					
+/ 				= link_to 'Get Started', @get, class: 'button'
+
+/ 	section#welcom-top-rated.section
+/ 		h2
+/ 			| Top Rated
+
+/ 		div.columns
+/ 			- @top_rateds = [{ name: 'Greg Stiler', skills: 'photography', location: 'New York City, NY', rating: 4, description: "I'm a paragraph. Click here to add your own text and edit me. It's easy."}, { name: 'Ryan Gale', skills: 'videography', location: 'Boston, MA', rating: 4.6, description: "I'm a paragraph. Click here to add your own text and edit me. It's easy."}, { name: 'Amy Fitzgerald', skills: 'music production', location: 'Cambridge, MA', rating: 5, description: "I'm a paragraph. Click here to add your own text and edit me. It's easy."}]
+			
+/ 			- @top_rateds.each do |top_rated|
+/ 				div.column
+/ 					div.card.profile-card
+/ 						div.card-image
+/ 							figure.image
+/ 								img{src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"}
+/ 						div.card-content
+/ 							div.media-content
+/ 								p.title.is-4
+/ 									= top_rated[:name]
+/ 							div.content
+/ 								div
+/ 									= "Skill: #{top_rated[:skill]}"
+/ 								div
+/ 									= "Location: #{top_rated[:location]}"
+/ 								div.is-relative
+/ 									- whole = top_rated[:rating].floor
+/ 									- part = top_rated[:rating] - whole
+/ 									span.icon
+/ 										- (1..whole).each do |n|
+/ 											i.fas.fa-star.has-text-warning
+			
+/ 								p
+/ 									= top_rated[:description]
+
+/ 							= link_to 'View Profile', @get, class: 'button'
+
+/ 	section.section
+/ 		container.has-background-grey-lighter
+/ 			h2
+/ 				| Explore
+
+/ 			div.columns
+/ 				- @category_skills = {music: ['dj', 'singer', 'producer', 'drummer', 'band', 'song writer', 'hip hop artist', 'dance'], photo: ['portrait', 'family', 'events', 'photo booth'], video: ['wedding', 'short film', 'events', 'music video'], more: ['graphic designer', 'web developer', 'artist']}
+/ 				- @category_skills.each do |category, skills|
+/ 					div.column
+/ 						div.card
+/ 							header.card-header
+/ 								p.card-header-title
+/ 									= category
+/ 							// line
+/ 							div.card-content
+/ 								div.content
+/ 									ul
+/ 										- skills.each do |skill|
+/ 											li
+/ 												= skill
+/ 									= link_to 'Search', @get, class: 'button'
+
+
+/ 	section.section
+/ 		h2
+/ 			| Real-Time Availability
+/ 		p
+/ 			| Members actively update calendars & profile for real-time booking!
+/ 			| Save the time and hassle of waiting to hear back on a quote...
+
+/ 	section.section
+/ 		h2
+/ 			| Let Us Do The Hard Work For You!
+/ 		h3
+/ 			| Full service platform
+/ 		p
+/ 			| Whether you are a Talented member looking to get ahead in your profession or an every day mom looking to plan the next Birthday.
+/ 		p 
+/ 			| We are Here!
+
+/ 	section.section
+/ 		h2
+/ 			| Contact Us

@@ -1,0 +1,33 @@
+
+nav.navbar.is-primary 
+	div.container
+		div.navbar-brand
+			a.navbar-item href='/' style='font-weight: bold;'
+				| eBalent
+				a.navbar-burger role='button' aria-label='menu' aria-expanded='false' data-target='navbarDropdown'
+					span aria-hidden="true"
+					span aria-hidden="true"
+					span aria-hidden="true"
+
+		div#navbarDropdown.navbar-menu
+			div.navbar-start
+			div.navbar-end
+				a.navbar-item href='/' is-active=true
+					| Home
+				a.navbar-item href='#'
+					| Book Now!
+				a.navbar-item href='#'
+					| About
+				a.navbar-item href='#'
+					| Contact
+				
+				/ = link_to 'Login', controller: 'sessions', action: 'create', class: 'navbar-item'
+
+				/ = link_to 'Sign-up', controller: 'sessions', action: 'new', class: 'navbar-item'
+				
+				div.navbar-item
+					= button_to 'Login', '/login', method: :get
+
+				div.navbar-item
+					= button_to 'Sign-up', '/users/new', method: :get
+

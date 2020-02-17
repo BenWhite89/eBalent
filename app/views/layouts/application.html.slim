@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title
+      | eBalent
+    = csrf_meta_tags
+    = csp_meta_tag
+    / = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    script#fonts src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer=true
+    script src="/assets/application.js"
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
+    meta#viewport name="viewport" content="width=device-width, initial-scale=1"
+    img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-wp-preserve="%3Cscript%20defer%20src%3D%22https%3A%2F%2Fuse.fontawesome.com%2Freleases%2Fv5.0.6%2Fjs%2Fall.js%22%3E%3C%2Fscript%3E" data-mce-resize="false" data-mce-placeholder="1" class="mce-object" width="20" height="20" alt="&lt;script&gt;" title="&lt;script&gt;"
+
+body
+  = render 'navbar.html.slim'
+  = yield
+  = render 'footer.html.slim'
+
+
+         
+
