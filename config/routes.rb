@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :talent_profiles
   root 'sessions#welcome'
 
   resources :users, only: [:new, :create]

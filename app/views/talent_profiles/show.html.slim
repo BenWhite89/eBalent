@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong User:
+  = @talent_profile.user_id
+p
+  strong Description:
+  = @talent_profile.description
+
+=> link_to 'Edit', edit_talent_profile_path(@talent_profile)
+'|
+=< link_to 'Back', talent_profiles_path

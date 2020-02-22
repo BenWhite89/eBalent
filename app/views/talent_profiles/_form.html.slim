@@ -1,0 +1,15 @@
+= form_for @talent_profile do |f|
+  - if @talent_profile.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@talent_profile.errors.count, "error")} prohibited this talent_profile from being saved:"
+      ul
+        - @talent_profile.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions = f.submit

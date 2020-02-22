@@ -1,0 +1,23 @@
+h1 Listing talent_profiles
+
+table
+  thead
+    tr
+      th User
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @talent_profiles.each do |talent_profile|
+      tr
+        td = talent_profile.user_id
+        td = talent_profile.description
+        td = link_to 'Show', talent_profile
+        td = link_to 'Edit', edit_talent_profile_path(talent_profile)
+        td = link_to 'Destroy', talent_profile, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Talent profile', new_talent_profile_path

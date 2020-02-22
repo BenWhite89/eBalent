@@ -1,0 +1,29 @@
+#search-bar style='width: 45em; margin: 0 auto;'
+
+	= form_tag talent_profiles_path, id: 'search-bar', style: '', method: :get 
+		.field.is-horizontal
+			.field-body
+				.field
+					.control.has-icons-left.has-icons-right
+						.select.is-rounded.is-multiple
+							- categories = {music: ['dj', 'singer', 'producer', 'drummer', 'band', 'song writer', 'hip hop artist', 'dance'], photo: ['portrait', 'family', 'events', 'photo booth'], video: ['wedding', 'short film', 'events', 'music video'], more: ['graphic designer', 'web developer', 'artist']}
+							= select_tag :skills, grouped_options_for_select(categories),include_blank: true
+							.icon.is-small.is-left
+								i.fas.fa-briefcase
+							.icon.is-small.is-right
+								i.fas.fa-angle-down
+				.field
+					.control.has-icons-left
+						= text_field_tag :location, nil, class: 'input is-rounded', placeholder: 'City, State, Zip'
+						.icon.is-small.is-left
+							i.fas.fa-globe
+				.field
+					.control.has-icons-left
+			  		= date_field_tag :search_date, Date.today, class: 'input is-rounded'
+						.icon.is-small.is-left
+							i.fas.fa-calendar
+				.field
+					.control.has-icons-left
+						a.button.is-info.is-rounded
+							| Search 		
+

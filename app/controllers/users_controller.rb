@@ -13,6 +13,9 @@ class UsersController < ApplicationController
   end
 
   def index
-  	@user = current_user 
+  	current_user 
+  end
+
+  def update
   end
 end
