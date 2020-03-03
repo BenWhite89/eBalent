@@ -1,9 +1,50 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 1
-  description: MyText
+dj_profile:
+  user: dj_user
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis aliquet erat vitae tempor. Ut scelerisque ligula in ex faucibus aliquam at sit amet urna. Vestibulum vel enim sapien. Donec mattis, purus eu sollicitudin ultrices, augue dolor tristique nulla, ut fringilla mauris nisi sed arcu. Donec viverra ante mi, vitae suscipit ante tincidunt quis. Ut facilisis maximus neque ac mattis. Duis non eros placerat, accumsan risus eu, laoreet augue. Vestibulum interdum, leo id finibus sodales, velit lorem volutpat magna, at fringilla tortor est sit amet nibh. Duis sed tellus eget enim congue commodo sed et neque. Maecenas eget feugiat felis, sit amet consectetur enim. Aenean fermentum risus at tempor lacinia. Vivamus maximus sed risus sit amet faucibus.
+  headline: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  rating: 4.4
+  skills: ['dj', 'producer']
 
-two:
-  user_id: 1
-  description: MyText
+phoographer_profile:
+  user: photographer_user
+  description: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus egestas lacus id orci commodo, vel hendrerit lorem bibendum. Suspendisse varius nisi vel magna mattis eleifend. Etiam bibendum turpis vel sem convallis ultricies. Vivamus tempor, nisi congue iaculis tincidunt, purus odio rhoncus ligula, et sollicitudin est risus in nisl. Pellentesque at lacus nec magna sodales egestas a ac dui. Mauris semper, quam non pharetra pellentesque, erat libero commodo nulla, quis volutpat tortor magna feugiat nisl.
+  headline: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+  rating: 3.7
+  skills: ['portrait photographer']
+
+graphic_designer_profile:
+  user: graphic_designer_user
+  description: Mauris dignissim leo dui, vel porta velit lacinia non. Curabitur non dapibus nibh, vel gravida ex. Integer et elit accumsan, pulvinar orci sed, tempor velit. Fusce gravida justo nisl, at consectetur nulla sodales quis. Duis tempor fermentum velit in fringilla. Pellentesque egestas nibh vel lacus congue, a tempor lacus congue. Etiam sodales lorem ut leo gravida suscipit. Quisque ante sapien, posuere nec sodales in, ornare id tortor. In vel semper felis, sed tempus elit. Phasellus egestas, odio at pretium facilisis, augue arcu luctus velit, ac dapibus mauris lorem sed massa. Fusce sed consectetur enim, lacinia tristique magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id erat rhoncus, faucibus leo sit amet, efficitur erat. Nulla suscipit dolor quis magna mollis auctor. In hac habitasse platea dictumst.
+  headline: Mauris dignissim leo dui, vel porta velit lacinia non.
+  rating: 4.1
+  skills: ['graphic designer', 'web developer']
+
+producer_profile:
+  user: producer_user
+  description: Integer purus metus, lacinia at euismod sed, euismod quis magna. Donec nec cursus nisi. Nunc maximus mattis justo interdum ultrices. Praesent porta tempor lorem fringilla porttitor. Praesent placerat consectetur sem, eget cursus ex interdum eu. Mauris vitae aliquet risus. Fusce eu blandit elit. Integer varius ultrices tortor vel posuere.
+  headline: Integer purus metus, lacinia at euismod sed, euismod quis magna.
+  rating: 3.2
+  skills: ['producer', 'song writer']
+
+wedding_photographer_profile:
+  user: wedding_photographer_user
+  description: Pellentesque accumsan odio nulla, vel viverra sem gravida ac. Vestibulum posuere sit amet mauris eu eleifend. Suspendisse commodo, ante ut scelerisque viverra, dolor augue fermentum elit, sed tempus risus diam elementum erat. Mauris at ex nisl. Pellentesque et porta felis. Integer nec ipsum ac nulla sagittis mollis elementum vel diam. Ut gravida iaculis sapien quis ornare. Sed vel rhoncus dolor, ut volutpat quam. Etiam condimentum libero quis nunc gravida consectetur. Sed vel mauris accumsan lacus semper commodo sed nec est. Quisque porttitor placerat orci ac porta. Praesent gravida sagittis consectetur. Sed dapibus laoreet lacus in blandit. Curabitur sit amet venenatis erat.
+  headline: Pellentesque accumsan odio nulla, vel viverra sem gravida ac. Vestibulum posuere sit amet mauris eu eleifend.
+  rating: 5
+  skills: ['wedding photographer']
+
+videographer_profile: 
+  user: videographer_user
+  description: Suspendisse potenti. Praesent a varius quam. Vestibulum tempus tortor elementum, vestibulum arcu ut, ullamcorper justo. Praesent et turpis efficitur, bibendum mi ac, commodo magna. Donec velit nisl, rutrum quis lectus eu, sodales dictum mi. Cras dignissim augue at turpis gravida maximus. Praesent luctus leo diam, nec accumsan ex ultrices at. Donec iaculis odio non mi laoreet, eu vehicula ante consequat. Sed aliquet nisi at diam dignissim, a ultrices urna condimentum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut vestibulum lacus sit amet turpis sodales convallis. Aenean risus lorem, maximus sed dui id, rutrum mattis ligula. Aenean sit amet nulla sit amet purus varius hendrerit sed nec magna.
+  headline: Suspendisse potenti. Praesent a varius quam. Vestibulum tempus tortor elementum, vestibulum arcu ut, ullamcorper justo.
+  rating: 3.4
+  skills: ['music video', 'short film']
+
+drummer_profile:
+  user: producer_user
+  description: Nam vestibulum id purus sit amet eleifend. In id elit finibus nibh pharetra facilisis. In sed ligula vestibulum, bibendum nunc ut, porta mi. In dictum rhoncus volutpat. Donec euismod vel justo ac dapibus. Donec eu quam nec enim viverra feugiat. Proin ullamcorper tincidunt lectus. Aliquam egestas ligula eu ex posuere, a convallis mi ornare. Praesent ornare est eget dolor pulvinar, ac mollis lorem placerat. Praesent et felis sollicitudin, tincidunt tellus ut, hendrerit nunc. Nullam quis risus nulla. Maecenas mattis volutpat blandit. Quisque suscipit neque leo, vitae porta ex ultricies non. Morbi auctor nisl ligula.
+  headline: Nam vestibulum id purus sit amet eleifend.
+  rating: 4.8
+  skills: ['drummer']

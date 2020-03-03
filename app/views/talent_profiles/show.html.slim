@@ -1,12 +1,15 @@
 p#notice = notice
+br
 
-p
-  strong User:
-  = @talent_profile.user_id
-p
-  strong Description:
-  = @talent_profile.description
+section.section
+	figure.image.is-16by9
+		img src='https://bulma.io/images/placeholders/800x480.png'
+	h2.is-size-3.has-text-centered.has-text-weight-medium
+		= @talent_profile.user.name
+	br
+	.box
+		p
+		  = @talent_profile.description
+br
 
-=> link_to 'Edit', edit_talent_profile_path(@talent_profile)
-'|
-=< link_to 'Back', talent_profiles_path
+

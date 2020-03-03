@@ -1,13 +1,58 @@
-footer.footer
-  div.container
-    div.content.has-text-centered
-      p
-        | hi
-      div#social
-        a.twitter-follow-button href="https://twitter.com/jgthms" data-show-count="true" data-lang="en"
-        a.twitter-share-button href="https://twitter.com/share" data-text="{{ site.title }}" data-url="{{ site.url }}" data-count="horizontal" data-via="jgthms" data-related="jgthms:Creator of Bulma"
-      p
-        | Want to learn how to 
-        | Read 
-      p
-        | Want to make a?
+footer.footer.has-background-grey
+  div.container.has-text-white
+    .columns.has-text-centered 
+      / .level-left
+      .column 
+        h2.is-size-3.has-text-centered
+          | eBalent
+        div
+          - phone = "(617)-603-3521"
+          p 
+            = phone
+          p Support@eBalent.com 
+          br
+          p Monday - Saturday 
+          p 8:00am - 6:00pm
+          br
+          p Boston
+          p New York
+      
+
+      .column 
+        br
+        br
+        div
+          p.is-size-4
+            | Company
+          ul
+            li About
+            li Members
+            li Careers
+      .column
+        br 
+        br
+        div
+          p.is-size-4 
+            | Customer
+          ul 
+            li Join Us
+            li Terms
+      .column
+        br
+        br
+        div
+          p.is-size-4 
+            | Support
+          ul
+            li Customer Service
+            li Privacy 
+/ Company
+/ About
+/ Members
+/ Careers
+/ Customer
+/ Join Us
+/ Terms
+/ Support
+/ Customer Service
+/ Privacy

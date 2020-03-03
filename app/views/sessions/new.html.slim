@@ -1,14 +1,28 @@
-h1 Login
+br
+	section.section style='min-height: 50vh;'
+		h2.is-size-3.has-text-centered.has-text-weight-medium
+			| Login
+		br
+		.container.has-text-centered
+			.container style='max-width: 600px;'
 
-= form_tag sessions_path do |form|
+				= form_tag sessions_path, id: 'login-form', method: :post
+					.field
+						.field-body
+							.field
+								p.control.is-expanded.has-icons-left
+									= text_field_tag :email, nil, class: 'input is-rounded', placeholder: 'Email', required: true
+									span.icon.is-small.is-left
+										i.fas.fa-envelope
 
-	.field
-		= label_tag :email
-		= text_field_tag :email
-	
-	.field
-		= label_tag :password
-		= password_field_tag :password
-	
-	.actions
-		= submit_tag 'Login'
+					.field
+						.field-body
+							.field
+								p.control.is-expanded.has-icons-left
+									= password_field_tag :password, nil, class: 'input is-rounded', placeholder: 'password', required: true
+									span.icon.is-small.is-left
+										i.fas.fa-lock
+
+					.field
+						.control
+							= submit_tag 'Submit', class: 'is-info is-rounded is-fullwidth button'

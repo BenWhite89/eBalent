@@ -1,13 +1,41 @@
-h1 Sign Up
+br
+	section.section style='min-height: 50vh;'
+		h2.is-size-3.has-text-centered.has-text-weight-medium
+			| Sign up
+		br
+		.container.has-text-centered
+			.container style='max-width: 600px;'
 
-= form_for @user do |form|
-  .field
-  	= form.label :email
-  	= form.text_field :email, required: true
-  
-	.field
-  	= form.label :password
-  	= form.password_field :password, required: true
-  
-	.actions
-  	= form.submit
+				= form_tag users_path, id: 'signup-form', method: :post
+					.field.is-horizontal
+						.field-body
+							.field
+								p.control.is-expanded.has-icons-left
+									= text_field_tag :first_name, nil, class: 'input is-rounded', placeholder: 'First Name'
+									span.icon.is-small.is-left
+										i.fas.fa-user
+							.field
+								p.control.is-expanded.has-icons-left
+									= text_field_tag :last_name, nil, class: 'input is-rounded', placeholder: 'Last Name'
+									span.icon.is-small.is-left
+										i.fas.fa-user
+
+					.field
+						.field-body
+							.field
+								p.control.is-expanded.has-icons-left
+									= text_field_tag :email, nil, class: 'input is-rounded', placeholder: 'Email', required: true
+									span.icon.is-small.is-left
+										i.fas.fa-envelope
+
+					.field
+						.field-body
+							.field
+								p.control.is-expanded.has-icons-left
+									= password_field_tag :password, nil, class: 'input is-rounded', placeholder: 'password', required: true
+									span.icon.is-small.is-left
+										i.fas.fa-lock
+
+					.field
+						.control
+							= submit_tag 'Submit', class: 'is-info is-rounded is-fullwidth button'

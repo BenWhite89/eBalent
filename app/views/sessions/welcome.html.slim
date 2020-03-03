@@ -5,73 +5,116 @@ div#wecome-index
 		= render 'search_bar.html.slim'
 
 	section#welcome-description.section
-		h2
+		h2.is-size-3.has-text-centered.has-text-weight-medium
 			| How It Works
-		div.card
+		br
+		.card style="border-radius: 10px;"
 			// icons
-			div.container
+			.container
+				br
+				br
+				.level.is-mobile
+					.level-item.has-text-centered
+						div
+							p
+								span.icon
+									i.fas.fa-user.fa-3x
+							p
+								| Browse
+					.level-item.has-text-centered
+						div
+							p
+								span.icon
+									i.fas.fa-calendar-check.fa-3x.has-text-info
+							p
+								| Book
+					.level-item.has-text-centered 
+						div
+							p
+								span.icon
+									i.fas.fa-3x.fa-link.has-text-danger
+							p
+								| Connect
+					.level-item.has-text-centered
+						div
+							p
+								span.icon
+									i.fas.fa-3x.fa-glass-cheers.has-text-primary
+							p
+								| Enjoy
+
+
 				h4.title.is-4{ style="text-align: center; padding: 10px 10px 10px 10px;" }
 					| We Do The Hard Work For You
-				p.content.has-text-centered
-					| Finding local talent has never been easier than booking through eBalent. We have a great selection of local talent ranging from Musicians, Photographers, DJs and more! Browse tons of catalogs to match your needs as well as budget. We invite you to come visit our one stop shop to get a one-of-a-kind experience.
-					
-				= link_to 'Get Started', @get, class: 'button'
+				.container.is-fluid
+					p.content.has-text-centered.is-size-5
+						| Finding local talent has never been easier than booking through eBalent. We have a great selection of local talent ranging from Musicians, Photographers, DJs and more! Browse tons of catalogs to match your needs as well as budget. We invite you to come visit our one stop shop to get a one-of-a-kind experience.
+						br 
+						br
+						= link_to 'Get Started', '/explore', class: 'button is-rounded is-outlined is-info'
+						br
+						br
+						br
 
-	section#welcom-top-rated.section
-		h1
-			| Top Rated
+	section#welcome-top-rated.section
+		.container	
+			h2.is-size-3.has-text-centered.has-text-weight-medium
+				| Top Rated
+			br
 
-		div.columns
-			- @top_rateds = [{ name: 'Greg Stiler', skills: 'photography', location: 'New York City, NY', rating: 4, description: "I'm a paragraph. Click here to add your own text and edit me. It's easy."}, { name: 'Ryan Gale', skills: 'videography', location: 'Boston, MA', rating: 4.6, description: "I'm a paragraph. Click here to add your own text and edit me. It's easy."}, { name: 'Amy Fitzgerald', skills: 'music production', location: 'Cambridge, MA', rating: 5, description: "I'm a paragraph. Click here to add your own text and edit me. It's easy."}]
-			
-			- @top_rateds.each do |top_rated|
-				div.column
-					div.card.profile-card
-						div.card-image
-							figure.image
-								img{src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"}
-						div.card-content
-							div.media-content
-								p.title.is-4
-									= top_rated[:name]
-							div.content
-								div
-									= "Skill: #{top_rated[:skill]}"
-								div
-									= "Location: #{top_rated[:location]}"
-								div.is-relative
-									- whole = top_rated[:rating].floor
-									- part = top_rated[:rating] - whole
-									span.icon
+			.columns
+				- @top_rateds = [{ name: 'Greg Stiler', skills: 'photography', location: 'New York City, NY', rating: 4, description: "I'm a paragraph. Click here to add your own text and edit me. It's easy."}, { name: 'Ryan Gale', skills: 'videography', location: 'Boston, MA', rating: 4.6, description: "I'm a paragraph. Click here to add your own text and edit me. It's easy."}, { name: 'Amy Fitzgerald', skills: 'music production', location: 'Cambridge, MA', rating: 5, description: "I'm a paragraph. Click here to add your own text and edit me. It's easy."}]
+				
+				- @talent_profiles.each do |talent_profile|
+					.column
+						.card.profile-card 
+							.card-image
+								figure.image
+									img{src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"}
+							.card-content style='min-height: 230px;'
+								.media-content
+									p.title.is-4
+										= "#{talent_profile.user[:first_name]} #{talent_profile.user[:last_name]}"
+								.content
+									div
+										= talent_profile[:skills].join(', ')
+									div
+										= talent_profile[:location]
+									.is-relative
+										- whole = talent_profile[:rating].floor
+										- part = talent_profile[:rating] - whole
 										- (1..whole).each do |n|
-											i.fas.fa-star.has-text-warning
-			
-								p
-									= top_rated[:description]
+											span.icon
+												i.fas.fa-star.has-text-warning
+				
+									p
+										= talent_profile[:headline]
+							.card-content
+								.container.has-text-centered.card-footer-item
+									= link_to 'View Profile', talent_profile_path(talent_profile), class: 'button is-rounded is-info is-outlined', method: :get
 
-							= link_to 'View Profile', @get, class: 'button'
 
-	section.section
-		container.has-background-grey-lighter
-			h2
+	section.section.has-background-light
+		.container
+			h2.is-size-3.has-text-centered.has-text-weight-medium
 				| Explore
-
-			div.columns
+			br
+			.columns.is-vcentered
 				- @category_skills = {music: ['dj', 'singer', 'producer', 'drummer', 'band', 'song writer', 'hip hop artist', 'dance'], photo: ['portrait', 'family', 'events', 'photo booth'], video: ['wedding', 'short film', 'events', 'music video'], more: ['graphic designer', 'web developer', 'artist']}
 				- @category_skills.each do |category, skills|
-					div.column
-						div.card
-							header.card-header
-								p.card-header-title
-									= category
+					.column 
+						.card.explore-card.has-background-dark.has-text-centered style='height: 16em; display: flex; align-items: center;'
 							// line
-							div.card-content
-								div.content
-									ul
-										- skills.each do |skill|
-											li
-												= skill
-									= link_to 'Search', @get, class: 'button'
+							.container
+								.card-content
+									.content.has-text-centered.has-text-white.is-size-3.has-text-weight-semibold
+										= category.capitalize
+									.content.explore-card-content.has-text-centered
+										- skills.take(3).each do |skill|
+											.has-text-white
+													= skill
+										br
+										= link_to 'Search', @get, class: 'button is-rounded is-centered'
 
 
 	section.section
@@ -81,7 +124,7 @@ div#wecome-index
 			| Members actively update calendars & profile for real-time booking!
 			| Save the time and hassle of waiting to hear back on a quote...
 
-	section.section
+	section.section.has-background-light
 		h2
 			| Let Us Do The Hard Work For You!
 		h3
@@ -92,5 +135,36 @@ div#wecome-index
 			| We are Here!
 
 	section.section
-		h2
+		h2.is-size-3.has-text-centered.has-text-weight-medium
 			| Contact Us
+		br
+		.container.has-text-centered
+			.container style='max-width: 600px;'
+				= form_tag contacts_path, id: 'contact-form', method: :post
+					.field
+						.field-body
+							.field
+								p.control.is-expanded
+									= text_field_tag :name, nil, class: 'input is-rounded', placeholder: 'Name'
+					.field
+						.field-body
+							.field
+								p.control.is-expanded
+									= text_field_tag :email, nil, class: 'input is-rounded', placeholder: 'Email'
+
+					.field
+						.field-body
+							.field
+								p.control.is-expanded
+									= text_field_tag :subject, nil, class: 'input is-rounded', placeholder: 'Subject'
+
+					.field
+						.field-body
+							.field
+								.control
+									= text_area_tag :description, nil, class: 'textarea', placeholder: 'Type your message here', style: 'border-radius: 20px;'
+
+					.field
+						.control
+							a.button.is-info.is-rounded.is-fullwidth
+								| Submit 		

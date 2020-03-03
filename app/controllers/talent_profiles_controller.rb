@@ -1,28 +1,30 @@
 class TalentProfilesController < ApplicationController
   before_action :set_talent_profile, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:index, :show]
 
-  # GET /talent_profiles
-  # GET /talent_profiles.json
+
   def index
-    @talent_profiles = TalentProfile.all
+    if params[:talent_profile]
+      @talent_profiles = TalentProfile.paginate(page: params[:page], per_page: 6)
+        .has_skill(skill)
+        .where(talent_profile_params)
+        
+    else
+      @talent_profiles = TalentProfile.paginate(page: params[:page], per_page: 6)
+    end
+
   end
 
-  # GET /talent_profiles/1
-  # GET /talent_profiles/1.json
   def show
   end
 
-  # GET /talent_profiles/new
   def new
     @talent_profile = TalentProfile.new
   end
 
-  # GET /talent_profiles/1/edit
   def edit
   end
 
-  # POST /talent_profiles
-  # POST /talent_profiles.json
   def create
     @talent_profile = TalentProfile.new(talent_profile_params)
 
@@ -37,8 +39,6 @@ class TalentProfilesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /talent_profiles/1
-  # PATCH/PUT /talent_profiles/1.json
   def update
     respond_to do |format|
       if @talent_profile.update(talent_profile_params)
@@ -51,8 +51,6 @@ class TalentProfilesController < ApplicationController
     end
   end
 
-  # DELETE /talent_profiles/1
-  # DELETE /talent_profiles/1.json
   def destroy
     @talent_profile.destroy
     respond_to do |format|
@@ -69,6 +67,10 @@ class TalentProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def talent_profile_params
-      params.require(:talent_profile).permit(:user_id, :description)
+      params.require(:talent_profile).permit(:location)
+    end
+
+    def skill
+      params.require(:talent_profile)[:skill]
     end
 end

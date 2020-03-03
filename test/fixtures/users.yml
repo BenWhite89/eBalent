@@ -1,9 +1,50 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  email: MyString
-  password_digest: MyString
+dj_user:
+  email: dj@ebalent.com
+  password_digest: <%= BCrypt::Password.create('testpassword', cost: 5) %>
+  first_name: Karen
+  last_name: Vinyl
 
-two:
-  email: MyString
-  password_digest: MyString
+photographer_user:
+  email: photographer@ebalent.com
+  password_digest: <%= BCrypt::Password.create('testpassword', cost: 5) %>
+  first_name: Dar
+  last_name: Krum
+
+graphic_designer_user: 
+  email: graphic_designer@ebalent.com
+  password_digest: <%= BCrypt::Password.create('testpassword', cost: 5) %>
+  first_name: Mac
+  last_name: Intosh
+
+default_customer_user:
+  email: customer@test.com
+  password_digest: <%= BCrypt::Password.create('testpassword', cost: 5) %>
+  first_name: Joe
+  last_name: Cust
+
+producer_user:
+  email: producer@ebalent.com
+  password_digest: <%= BCrypt::Password.create('testpassword', cost: 5) %>
+  first_name: Melody 
+  last_name: Macre
+
+wedding_photographer_user:
+  email: wedding_photographer@ebalent.com
+  password_digest: <%= BCrypt::Password.create('testpassword', cost: 5) %>
+  first_name: Matt
+  last_name: Ramone
+
+videographer_user: 
+  email: videographer@ebalent.com
+  password_digest: <%= BCrypt::Password.create('testpassword', cost: 5) %>
+  first_name: Phil
+  last_name: Zoom
+
+drummer_user:
+  email: drummer@ebalent.com
+  password_digest: <%= BCrypt::Password.create('testpassword', cost: 5) %>
+  first_name: Anne
+  last_name: Imal
+

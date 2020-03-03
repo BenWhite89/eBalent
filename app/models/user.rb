@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
 	has_secure_password
+	has_one :talent_profile
 	# TODO: add
 	# name
 	# has many talents?
@@ -13,5 +14,8 @@ class User < ApplicationRecord
   #
   # will talent users self-signup or will they need to be vetted? 
 
+  def name
+  	"#{self.first_name} #{self.last_name}"
+  end
 
 end

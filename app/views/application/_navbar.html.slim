@@ -1,22 +1,23 @@
 
-nav.navbar.is-primary 
+nav.navbar.is-white
 	div.container
 		div.navbar-brand
-			a.navbar-item href='/' style='font-weight: bold;'
-				| eBalent
-				a.navbar-burger role='button' aria-label='menu' aria-expanded='false' data-target='navbarDropdown'
-					span aria-hidden="true"
-					span aria-hidden="true"
-					span aria-hidden="true"
+			/ = link_to 'eBalent', '/', class: 'navbar-item has-text-info is-size-4', style: 'font-weight: bold;', method: :get
+			/ a.navbar-item.has-text-info.is-size-4  href='/' style='font-weight: bold;'
+			= link_to 'eBalent', '/',class: 'navbar-item has-text-info is-size-4', style: 'font-weight: bold;', method: :get
+
+			a.navbar-burger role='button' aria-label='menu' aria-expanded='false' data-target='navbarDropdown'
+				span aria-hidden="true"
+				span aria-hidden="true"
+				span aria-hidden="true"
 
 		div#navbarDropdown.navbar-menu
 			div.navbar-start
 			div.navbar-end
-				a.navbar-item href='/' is-active=true
-					| Home
-				= link_to 'Home', root_path, class: 'navbar-item'
-				a.navbar-item href='#'
-					| Book Now!
+				= link_to 'Home', '/', class: 'navbar-item', method: :get
+
+				= link_to 'Book Now!', '/explore', class: 'navbar-item', method: :get
+
 				a.navbar-item href='#'
 					| About
 				a.navbar-item href='#'
@@ -28,13 +29,9 @@ nav.navbar.is-primary
 				- if current_user
 					div.navbar-item
 						= current_user.email
-					div.navbar-item
-						= button_to 'Log out', '/logout', method: :get
+					= link_to 'Log out', '/logout', class: 'navbar-item', method: :get
 
 				- else
-					div.navbar-item
-						= button_to 'Log in', '/login', class: 'navbar-item', method: :get
+					= link_to 'Log in', '/login', class: 'navbar-item', method: :get
 
-					div.navbar-item
-						= button_to 'Sign-up', '/users/new', method: :get
-
+					= link_to 'Sign up', '/users/new', class: 'navbar-item', method: :get

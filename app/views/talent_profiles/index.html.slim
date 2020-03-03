@@ -1,23 +1,73 @@
-h1 Listing talent_profiles
+div#explore
+ 
+  br
+  = render 'search_bar.html.slim'
+  
+  section.section
+    - @talent_profiles.each_slice(3).each do |row|
+      .columns
+        - row.each do |talent_profile|
+          .column
+            .card.profile-card
+              .card-image
+                figure.image
+                  img{src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"}
+              .card-content style='min-height: 230px;'
+                .media-content
+                  p.title.is-4
+                    = "#{talent_profile.user[:first_name]} #{talent_profile.user[:last_name]}"
+                .content
+                  div
+                    = talent_profile[:skills].join(', ')
+                  div
+                    = talent_profile[:location]
+                  .is-relative
+                    - whole = talent_profile[:rating].floor
+                    - part = talent_profile[:rating] - whole
+                    - (1..whole).each do |n|
+                      span.icon
+                        i.fas.fa-star.has-text-warning
+        
+                  p
+                    = talent_profile[:headline]
+              .card-content
+                .container.has-text-centered.card-footer-item
+                  / = link_to 'View Profile', @get, class: 'button is-rounded is-link is-outlined'
+                  = link_to 'View Profile', talent_profile_path(talent_profile), class: 'button is-rounded is-info is-outlined', method: :get
 
-table
-  thead
-    tr
-      th User
-      th Description
-      th
-      th
-      th
+    = page_entries_info @talent_profiles
+    
+    = will_paginate @collection, renderer: BulmaPagination::Rails
+    
 
-  tbody
-    - @talent_profiles.each do |talent_profile|
-      tr
-        td = talent_profile.user_id
-        td = talent_profile.description
-        td = link_to 'Show', talent_profile
-        td = link_to 'Edit', edit_talent_profile_path(talent_profile)
-        td = link_to 'Destroy', talent_profile, data: { confirm: 'Are you sure?' }, method: :delete
 
-br
 
-= link_to 'New Talent profile', new_talent_profile_path
+/ <div class="digg_pagination">
+/     <div class="page_info">
+/       <%= page_entries_info @posts %>
+/     </div>
+/     <%= will_paginate @posts, :container => false %>
+/   </div>
+
+
+
+
+
+
+
+/   <nav class="pagination is-rounded" role="navigation" aria-label="pagination">
+/   <a class="pagination-previous">Previous</a>
+/   <a class="pagination-next">Next page</a>
+/   <ul class="pagination-list">
+/     <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+/     <li><span class="pagination-ellipsis">&hellip;</span></li>
+/     <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
+/     <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+/     <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
+/     <li><span class="pagination-ellipsis">&hellip;</span></li>
+/     <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
+/   </ul>
+/ </nav>
+
+
+

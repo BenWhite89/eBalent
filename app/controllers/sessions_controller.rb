@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def welcome
+    @talent_profiles = TalentProfile.order(rating: :desc).limit(3)
   end
 
   def page_requires_login
